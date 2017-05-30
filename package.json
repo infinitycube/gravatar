@@ -1,6 +1,6 @@
 {
   "name": "@infinitycube/gravatar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gravatar directive for Angular 4 or greater",
   "main": "src/gravatar.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infinitycube/ng-gravatar.git"
+    "url": "git+https://github.com/infinitycube/gravatar.git"
   },
   "dependencies": {
     "md5": "^2.1.0"
@@ -54,7 +54,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/infinitycube/ng-gravatar/issues"
+    "url": "https://github.com/infinitycube/gravatar/issues"
   },
-  "homepage": "https://github.com/infinitycube/ng-gravatar#readme"
+  "homepage": "https://github.com/infinitycube/gravatar#readme"
 }

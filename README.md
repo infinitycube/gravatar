@@ -1,6 +1,6 @@
-# **ng-gravatar**
+# **Angular Gravatar**
 
-Angular gravatar directive
+Angular gravatar directive for Angular 4 or above.
 
 ## **Install**
 First you need to install the npm module:

@@ -10,8 +10,6 @@ export class Gravatar {
   @Input('size') size: number = 16;
   @Input('fallback') fallback: string = 'mm';
 
-  emailChange:any;
-
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {

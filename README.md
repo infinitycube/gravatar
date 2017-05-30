@@ -16,7 +16,7 @@ First you need to install the npm module:
 
 ### 2. Now you can use the gravatar
 
-    <img ng-gravatar [email]="user.email" [size]="16" [fallback]="mm">
+    <img gravatar [email]="user.email" [size]="16" [fallback]="'mm'">
     
 The property `email` is mandatory. You may mention `size` or it will use the default size `16`. The default fallback image is the garvatar mistery man, `mm` and you can use the following :
 
@@ -26,6 +26,12 @@ The property `email` is mandatory. You may mention `size` or it will use the def
    * `wavatar`: generated faces with differing features and backgrounds
    * `retro`: awesome generated, 8-bit arcade-style pixelated faces
    * `blank`: a transparent PNG image (border added to HTML below for demonstration purposes)
+
+*Note: You should keep the fallback value within a single quote inside the double quotes is assigning directly to the element.*
+
+You can declare a variable as well `fallback:string = "mm"` in your component and use like:
+
+    <img gravatar [email]="user.email" [size]="16" [fallback]="fallback">
 
 ## **License**
 ### The MIT License (MIT)

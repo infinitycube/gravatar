@@ -10,11 +10,20 @@ First you need to install the npm module:
 **If you use SystemJS** to load your files from `node_modules`, you should edit your systemjs config file and add `'@infinitycube/gravatar': 'node_modules/@infinitycube/gravatar/scr'` in the map and `'@infinitycube/ng-gravatar' : { defaultExtension: 'js' }` in packages.
 
 ## **Usage**
-### 1. Import to app.module
+### 1. Import to module
+Use the below import statement in the app.module or any other module you need to have gravatar image.
 
     import {Gravatar} from '@infinitycube/gravatar';
 
-### 2. Now you can use the gravatar
+### 2. Declare Gravatar in module
+In the declarations inside @NgModule decoration, add Gravatar.
+
+    @NgModule({
+        declarations: [ Gravatar ]
+    })
+
+### 3. Use the gravatar
+You can use the gravatar as shown below in any components which are declared in app.module or the module you imported the Gravatar to.
 
     <img gravatar [email]="user.email" [size]="16" [fallback]="'mm'">
     

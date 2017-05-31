@@ -27,7 +27,7 @@ The property `email` is mandatory. You may mention `size` or it will use the def
    * `retro`: awesome generated, 8-bit arcade-style pixelated faces
    * `blank`: a transparent PNG image (border added to HTML below for demonstration purposes)
 
-*Note: You should keep the fallback value within a single quote inside the double quotes is assigning directly to the element.*
+*Note: You should keep the fallback value within a single quote inside the double quotes, if assigning directly to the element.*
 
 You can declare a variable as well `fallback:string = "mm"` in your component and use like:
 

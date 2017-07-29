@@ -10,37 +10,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var md5 = require('md5');
-var Gravatar = (function () {
-    function Gravatar(elementRef) {
+var md5_1 = require("./md5");
+var GravatarDirective = (function () {
+    function GravatarDirective(elementRef) {
         this.elementRef = elementRef;
         this.size = 16;
         this.fallback = 'mm';
     }
-    Gravatar.prototype.ngOnInit = function () {
-        this.elementRef.nativeElement.src = "//www.gravatar.com/avatar/" + md5(this.email) + "?s=" + this.size + "&d=" + this.fallback;
+    GravatarDirective.prototype.ngOnInit = function () {
+        var emailHash = md5_1.Md5.hashStr(this.email);
+        this.elementRef.nativeElement.src = "//www.gravatar.com/avatar/" + emailHash + "?s=" + this.size + "&d=" + this.fallback;
     };
-    Gravatar.prototype.ngOnChanges = function () {
-        this.elementRef.nativeElement.src = "//www.gravatar.com/avatar/" + md5(this.email) + "?s=" + this.size + "&d=" + this.fallback;
+    GravatarDirective.prototype.ngOnChanges = function () {
+        var emailHash = md5_1.Md5.hashStr(this.email);
+        this.elementRef.nativeElement.src = "//www.gravatar.com/avatar/" + emailHash + "?s=" + this.size + "&d=" + this.fallback;
     };
-    return Gravatar;
+    return GravatarDirective;
 }());
 __decorate([
     core_1.Input('email'),
     __metadata("design:type", String)
-], Gravatar.prototype, "email", void 0);
+], GravatarDirective.prototype, "email", void 0);
 __decorate([
     core_1.Input('size'),
     __metadata("design:type", Number)
-], Gravatar.prototype, "size", void 0);
+], GravatarDirective.prototype, "size", void 0);
 __decorate([
     core_1.Input('fallback'),
     __metadata("design:type", String)
-], Gravatar.prototype, "fallback", void 0);
-Gravatar = __decorate([
+], GravatarDirective.prototype, "fallback", void 0);
+GravatarDirective = __decorate([
     core_1.Directive({
         selector: '[gravatar]'
     }),
     __metadata("design:paramtypes", [core_1.ElementRef])
-], Gravatar);
-exports.Gravatar = Gravatar;
+], GravatarDirective);
+exports.GravatarDirective = GravatarDirective;
+//# sourceMappingURL=gravatar.directive.js.map

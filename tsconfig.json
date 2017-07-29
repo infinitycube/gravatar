@@ -1,17 +1,32 @@
 
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": false,
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [ "es2015", "dom" ],
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "sourceMap": true,
+    "inlineSources": true,
+    "target": "es5",
+    "skipLibCheck": true,
+    "lib": [
+        "es2015",
+        "dom"
+    ],
+    "paths": {
+      "@angular/*": [
+        "../../../node_modules/@angular/*"
+      ]
+    }
   },
   "include": [
+      "index.ts",
       "src/**/*"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "**/*-aot.ts"
   ]
 }

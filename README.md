@@ -16,7 +16,7 @@ Use the below import statement in the app.module or any other module you need to
     import {GravatarModule} from '@infinitycube/gravatar';
 
 ### 2. Declare Gravatar in module
-In the declarations inside @NgModule imports, add GravatarModule.
+In the imports inside @NgModule decoration, add GravatarModule.
 
     @NgModule({
         declarations: [
@@ -34,7 +34,7 @@ In the declarations inside @NgModule imports, add GravatarModule.
     })
 
 ### 3. Use the gravatar
-You can use the gravatar as shown below in any components which are declared in app.module or the module you imported the Gravatar to.
+You can use the gravatar as shown below in any components which are declared in app.module or the module you imported the GravatarModule to.
 
     <img gravatar [email]="user.email" [size]="16" [fallback]="'mm'">
     

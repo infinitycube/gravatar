@@ -13,7 +13,7 @@ First you need to install the npm module:
 ### 1. Import to module
 Use the below import statement in the app.module or any other module you need to have gravatar image.
 
-    import {GravatarMoudule} from '@infinitycube/gravatar';
+    import {GravatarModule} from '@infinitycube/gravatar';
 
 ### 2. Declare Gravatar in module
 In the declarations inside @NgModule imports, add GravatarModule.

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
-import { DefaultGravatarFallback, DefaultGravatarSize } from 'src/gravatar.constants';
-import { GravatarService } from 'src/gravatar.service';
+import { DefaultGravatarFallback, DefaultGravatarSize } from './gravatar.constants';
+import { GravatarService } from './gravatar.service';
 
 @Directive({
   selector: '[gravatar]'

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DefaultGravatarFallback, DefaultGravatarSize } from 'src/gravatar.constants';
+import { DefaultGravatarFallback, DefaultGravatarSize } from './gravatar.constants';
 
 import { Md5 } from './md5';
 
@@ -7,7 +7,7 @@ import { Md5 } from './md5';
 export class GravatarService {
     /**
      * Returns the url for a user's gravatar image.
-     * 
+     *
      * @param {string} email email associated with gravatar account
      * @param {number} size size of gravatar image returned
      * @param {string} fallback fallback in case something goes wrong

@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+
 import { DefaultGravatarFallback, DefaultGravatarSize } from './gravatar.constants';
 import { GravatarService } from './gravatar.service';
 

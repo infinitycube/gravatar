@@ -1,24 +1,26 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
-
-import { Md5 } from './md5';
+import { DefaultGravatarFallback, DefaultGravatarSize } from 'src/gravatar.constants';
+import { GravatarService } from 'src/gravatar.service';
 
 @Directive({
   selector: '[gravatar]'
 })
 export class GravatarDirective implements OnInit, OnChanges {
   @Input('email') email: string;
-  @Input('size') size: number = 16;
-  @Input('fallback') fallback: string = 'mm';
+  @Input('size') size: number = DefaultGravatarSize;
+  @Input('fallback') fallback: string = DefaultGravatarFallback;
 
-  constructor(public elementRef: ElementRef) {}
+  constructor(public elementRef: ElementRef, private _gravatar: GravatarService) { }
 
   ngOnInit() {
-      let emailHash = Md5.hashStr(this.email);
-      this.elementRef.nativeElement.src = `//www.gravatar.com/avatar/${emailHash}?s=${this.size}&d=${this.fallback}`;
+    this.setSrcUrl();
   }
 
-  ngOnChanges(){
-    let emailHash = Md5.hashStr(this.email);
-    this.elementRef.nativeElement.src = `//www.gravatar.com/avatar/${emailHash}?s=${this.size}&d=${this.fallback}`;
+  ngOnChanges() {
+    this.setSrcUrl();
+  }
+
+  private setSrcUrl() {
+    this.elementRef.nativeElement.src = this._gravatar.url(this.email, this.size, this.fallback);
   }
 }

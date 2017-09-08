@@ -15,7 +15,6 @@ export class GravatarService {
      * @memberof GravatarService
      */
     public url(email: string, size: number = DefaultGravatarSize, fallback: string = DefaultGravatarFallback): string {
-        if (!email) { throw new Error('Email is required') }
         const emailHash = Md5.hashStr(email);
         return `//www.gravatar.com/avatar/${emailHash}?s=${size}&d=${fallback}`;
     }

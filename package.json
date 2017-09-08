@@ -1,6 +1,6 @@
 {
   "name": "@infinitycube/gravatar",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Gravatar directive for Angular 4 or greater",
   "main": "index.js",
   "baseUrl": ".",

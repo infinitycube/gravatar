@@ -10,20 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var md5_1 = require("./md5");
+var gravatar_constants_1 = require("./gravatar.constants");
+var gravatar_service_1 = require("./gravatar.service");
 var GravatarDirective = (function () {
-    function GravatarDirective(elementRef) {
+    function GravatarDirective(elementRef, _gravatar) {
         this.elementRef = elementRef;
-        this.size = 16;
-        this.fallback = 'mm';
+        this._gravatar = _gravatar;
+        this.size = gravatar_constants_1.DefaultGravatarSize;
+        this.fallback = gravatar_constants_1.DefaultGravatarFallback;
     }
     GravatarDirective.prototype.ngOnInit = function () {
-        var emailHash = md5_1.Md5.hashStr(this.email);
-        this.elementRef.nativeElement.src = "//www.gravatar.com/avatar/" + emailHash + "?s=" + this.size + "&d=" + this.fallback;
+        this.setSrcUrl();
     };
     GravatarDirective.prototype.ngOnChanges = function () {
-        var emailHash = md5_1.Md5.hashStr(this.email);
-        this.elementRef.nativeElement.src = "//www.gravatar.com/avatar/" + emailHash + "?s=" + this.size + "&d=" + this.fallback;
+        this.setSrcUrl();
+    };
+    GravatarDirective.prototype.setSrcUrl = function () {
+        this.elementRef.nativeElement.src = this._gravatar.url(this.email, this.size, this.fallback);
     };
     return GravatarDirective;
 }());
@@ -43,7 +46,7 @@ GravatarDirective = __decorate([
     core_1.Directive({
         selector: '[gravatar]'
     }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
+    __metadata("design:paramtypes", [core_1.ElementRef, gravatar_service_1.GravatarService])
 ], GravatarDirective);
 exports.GravatarDirective = GravatarDirective;
 //# sourceMappingURL=gravatar.directive.js.map

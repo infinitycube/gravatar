@@ -53,6 +53,9 @@ You can declare a variable as well `fallback:string = "mm"` in your component an
 
     <img gravatar [email]="user.email" [size]="16" [fallback]="fallback">
 
+### 4. Use the service
+You can use the service to just generate the url in case you don't want to use this on an `img` tag.  The `email` parameter is required.  `size` and `fallback` will have the same defaults when using the service as they do when using the directive (`16` and `mm` respectively).
+
 ## **License**
 ### The MIT License (MIT)
 

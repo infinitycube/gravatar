@@ -1,3 +1,4 @@
 export * from './gravatar.directive';
-export declare class GravatarModule {
-}
+export * from './gravatar.service';
+
+export declare class GravatarModule { }

@@ -24,7 +24,7 @@ var GravatarService = (function () {
     GravatarService.prototype.url = function (email, size, fallback) {
         if (size === void 0) { size = gravatar_constants_1.DefaultGravatarSize; }
         if (fallback === void 0) { fallback = gravatar_constants_1.DefaultGravatarFallback; }
-        var emailHash = md5_1.Md5.hashStr(email);
+        var emailHash = md5_1.Md5.hashStr(email.toLowerCase());
         return "//www.gravatar.com/avatar/" + emailHash + "?s=" + size + "&d=" + fallback;
     };
     return GravatarService;

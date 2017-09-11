@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var gravatar_directive_1 = require("./gravatar.directive");
+var gravatar_service_1 = require("./gravatar.service");
 var GravatarModule = (function () {
     function GravatarModule() {
     }
@@ -16,7 +17,8 @@ var GravatarModule = (function () {
 GravatarModule = __decorate([
     core_1.NgModule({
         declarations: [gravatar_directive_1.GravatarDirective],
-        exports: [gravatar_directive_1.GravatarDirective]
+        exports: [gravatar_directive_1.GravatarDirective],
+        providers: [gravatar_service_1.GravatarService]
     })
 ], GravatarModule);
 exports.GravatarModule = GravatarModule;

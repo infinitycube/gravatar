@@ -7,7 +7,7 @@ First you need to install the npm module:
 
     npm i --save @infinitycube/gravatar
 
-**If you use SystemJS** to load your files from `node_modules`, you should edit your systemjs config file and add `'@infinitycube/gravatar': 'node_modules/@infinitycube/gravatar'` in the map and `'@infinitycube/ng-gravatar' : { defaultExtension: 'js' }` in packages.
+**If you use SystemJS** to load your files from `node_modules`, you should edit your systemjs config file and add `'@infinitycube/gravatar': 'node_modules/@infinitycube/gravatar'` in the map and `'@infinitycube/gravatar' : { defaultExtension: 'js' }` in packages.
 
 ## **Usage**
 ### 1. Import to module
@@ -54,7 +54,16 @@ You can declare a variable as well `fallback:string = "mm"` in your component an
     <img gravatar [email]="user.email" [size]="16" [fallback]="fallback">
 
 ### 4. Use the service
-You can use the service to just generate the url in case you don't want to use this on an `img` tag.  The `email` parameter is required.  `size` and `fallback` will have the same defaults when using the service as they do when using the directive (`16` and `mm` respectively).
+You can use the service to just generate the url in your component or service.
+You need to import the `GaravatarService` as below:
+
+    import { GravatarService } from '@infinitycube/gravatar'; 
+
+And assign it like `_gravatar:GravatarService` and you can use to generate url with:
+
+    let gravatarUrl = _gravatar.url(this.user.email, 128, 'mm');
+
+The `email` parameter is required.  `size` and `fallback` will have the same defaults when using the service as they do when using the directive (`16` and `mm` respectively).
 
 ## **License**
 ### The MIT License (MIT)

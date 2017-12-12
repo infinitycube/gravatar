@@ -2,15 +2,18 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "rootDir": ".",
+    "module": "es2015",
+    "target": "es2015",
+    "types": [],
     "sourceMap": true,
     "inlineSources": true,
-    "target": "es5",
     "skipLibCheck": true,
+    "outDir": "./bundles",
     "lib": [
         "es2015",
         "dom"

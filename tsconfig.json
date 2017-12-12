@@ -17,7 +17,12 @@
     "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
     "experimentalDecorators": true, /* Enables experimental support for ES7 decorators. */
-    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */
+    "emitDecoratorMetadata": true, /* Enables experimental support for emitting type metadata for decorators. */
+    "paths": {
+      "@angular/*": [
+        "../../../node_modules/@angular/*"
+      ]
+    }
   },
   "include": [
     "**/*"

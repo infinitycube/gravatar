@@ -9,27 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var gravatar_constants_1 = require("./gravatar.constants");
-var gravatar_service_1 = require("./gravatar.service");
-var GravatarDirective = (function () {
-    function GravatarDirective(elementRef, _gravatar) {
+const core_1 = require("@angular/core");
+const gravatar_constants_1 = require("./gravatar.constants");
+const gravatar_service_1 = require("./gravatar.service");
+let GravatarDirective = class GravatarDirective {
+    constructor(elementRef, _gravatar) {
         this.elementRef = elementRef;
         this._gravatar = _gravatar;
         this.size = gravatar_constants_1.DefaultGravatarSize;
         this.fallback = gravatar_constants_1.DefaultGravatarFallback;
     }
-    GravatarDirective.prototype.ngOnInit = function () {
+    ngOnInit() {
         this.setSrcUrl();
-    };
-    GravatarDirective.prototype.ngOnChanges = function () {
+    }
+    ngOnChanges() {
         this.setSrcUrl();
-    };
-    GravatarDirective.prototype.setSrcUrl = function () {
+    }
+    setSrcUrl() {
         this.elementRef.nativeElement.src = this._gravatar.url(this.email, this.size, this.fallback);
-    };
-    return GravatarDirective;
-}());
+    }
+};
 __decorate([
     core_1.Input('email'),
     __metadata("design:type", String)
@@ -49,4 +48,3 @@ GravatarDirective = __decorate([
     __metadata("design:paramtypes", [core_1.ElementRef, gravatar_service_1.GravatarService])
 ], GravatarDirective);
 exports.GravatarDirective = GravatarDirective;
-//# sourceMappingURL=gravatar.directive.js.map

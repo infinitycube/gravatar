@@ -8,6 +8,10 @@
 # dependencies
 /node_modules
 
+# typescript
+/**/*.ts
+!/**/*.d.ts
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json

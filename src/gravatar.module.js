@@ -6,14 +6,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var gravatar_directive_1 = require("./gravatar.directive");
-var gravatar_service_1 = require("./gravatar.service");
-var GravatarModule = (function () {
-    function GravatarModule() {
-    }
-    return GravatarModule;
-}());
+const core_1 = require("@angular/core");
+const gravatar_directive_1 = require("./gravatar.directive");
+const gravatar_service_1 = require("./gravatar.service");
+let GravatarModule = class GravatarModule {
+};
 GravatarModule = __decorate([
     core_1.NgModule({
         declarations: [gravatar_directive_1.GravatarDirective],
@@ -22,4 +19,3 @@ GravatarModule = __decorate([
     })
 ], GravatarModule);
 exports.GravatarModule = GravatarModule;
-//# sourceMappingURL=gravatar.module.js.map

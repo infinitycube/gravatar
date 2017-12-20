@@ -7,17 +7,15 @@
     "experimentalDecorators": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "module": "es2015",
-    "target": "es2015",
+    "module": "commonjs",
+    "target": "es5",
     "types": [],
     "sourceMap": true,
     "inlineSources": true,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "outDir": "./bundles",
-    "lib": [
-        "es2015",
-        "dom"
-    ],
+    "lib": ["es5", "dom", "es2015.promise", "es2015.collection", "es2015.iterable"],
     "paths": {
       "@angular/*": [
         "../../../node_modules/@angular/*"

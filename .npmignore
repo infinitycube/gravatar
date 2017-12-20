@@ -3,6 +3,7 @@
 
 # typescript
 /**/*.ts
+!/**/*.d.ts
 
 # IDE - VSCode
 .vscode/*

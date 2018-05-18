@@ -2,6 +2,7 @@
 
 Angular gravatar directive for Angular 6 or above.
 
+
 ## **Install**
 First you need to install the npm module:
 

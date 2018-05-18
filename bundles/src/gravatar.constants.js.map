@@ -1,1 +1,0 @@
-{"version":3,"file":"gravatar.constants.js","sourceRoot":"","sources":["../../src/gravatar.constants.ts"],"names":[],"mappings":";;AAAa,QAAA,mBAAmB,GAAG,EAAE,CAAC;AACzB,QAAA,uBAAuB,GAAG,IAAI,CAAC","sourcesContent":["export const DefaultGravatarSize = 16;\nexport const DefaultGravatarFallback = 'mm';\n"]}

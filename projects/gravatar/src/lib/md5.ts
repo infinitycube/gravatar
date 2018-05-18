@@ -1,3 +1,4 @@
+// @dynamic
 export class Md5 {
 
     // One time hashing functions

@@ -1,28 +1,23 @@
 {
-  "name": "@infinitycube/gravatar",
-  "version": "2.0.3",
-  "description": "Gravatar directive for Angular 6 or later",
-  "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/infinitycube/gravatar.git"
-  },
-  "keywords": [
-    "gravatar",
-    "angular",
-    "ngx",
-    "directive"
-  ],
-  "author": {
-    "name": "Gopakumar",
-    "email": "me@gopumon.in"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/infinitycube/gravatar/issues"
-  },
-  "homepage": "https://github.com/infinitycube/gravatar#readme"
+	"name": "@infinitycube/gravatar",
+	"version": "2.0.4",
+	"description": "Gravatar directive for Angular 6 or later",
+	"peerDependencies": {
+		"@angular/common": "^6.0.0 || ^7.0.0",
+		"@angular/core": "^6.0.0 || ^7.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/infinitycube/gravatar.git"
+	},
+	"keywords": [ "gravatar", "angular", "ngx", "directive" ],
+	"author": {
+		"name": "Gopakumar",
+		"email": "me@gopumon.in"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/infinitycube/gravatar/issues"
+	},
+	"homepage": "https://github.com/infinitycube/gravatar#readme"
 }

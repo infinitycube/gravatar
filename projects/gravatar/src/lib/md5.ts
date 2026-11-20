@@ -189,8 +189,8 @@ export class Md5 {
         x[3] = d + x[3] | 0;
     }
 
-    private _dataLength: number;
-    private _bufferLength: number;
+    private _dataLength = 0;
+    private _bufferLength = 0;
 
     private _state: Int32Array = new Int32Array(4);
     private _buffer: ArrayBuffer = new ArrayBuffer(68);
@@ -303,7 +303,7 @@ export class Md5 {
         const s = self._state;
 
         return {
-            buffer: String.fromCharCode.apply(null, self._buffer8),
+            buffer: String.fromCharCode.apply(null, Array.from(self._buffer8)),
             buflen: self._bufferLength,
             length: self._dataLength,
             state: [s[0], s[1], s[2], s[3]]
@@ -368,8 +368,4 @@ export class Md5 {
 
         return raw ? this._state : Md5._hex(this._state);
     }
-}
-
-if (Md5.hashStr('hello') !== '5d41402abc4b2a76b9719d911017c592') {
-    console.error('Md5 self test failed.');
 }

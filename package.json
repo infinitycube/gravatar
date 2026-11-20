@@ -1,7 +1,7 @@
 {
   "name": "@infinitycube/gravatar",
-  "version": "2.0.6",
-  "description": "Gravatar directive for Angular 4 or greater",
+  "version": "3.0.0",
+  "description": "Gravatar directive and service for Angular 16 or later",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/infinitycube/gravatar.git"
@@ -10,7 +10,8 @@
     "gravatar",
     "angular",
     "ngx",
-    "directive"
+    "directive",
+    "standalone"
   ],
   "author": {
     "name": "Gopakumar",

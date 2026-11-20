@@ -1,75 +1,100 @@
 # **Angular Gravatar**
 
-Angular gravatar directive for Angular 6 or above.
+Gravatar directive and service for Angular.
+
+## **Compatibility**
+
+| Angular version | Package version |
+| --------------- | --------------- |
+| 16 – 22 (and later) | `3.x` |
+| 6 – 15 | `2.0.6` |
+
+`3.x` is published in the Ivy partial-compilation format, so it works with any Angular from 16 on, in both standalone and NgModule apps, with or without zone.js. Angular 14 and 15 cannot read the type metadata newer compilers emit, so stay on `2.0.6` there (it is processed by `ngcc`).
 
 ## **Install**
 
-First you need to install the npm module:
+    npm i @infinitycube/gravatar
 
-    npm i --save @infinitycube/gravatar
+For Angular 6 – 15:
 
-**If you use SystemJS** to load your files from `node_modules`, you should edit your systemjs config file and add `'@infinitycube/gravatar': 'node_modules/@infinitycube/gravatar'` in the map and `'@infinitycube/gravatar' : { defaultExtension: 'js' }` in packages.
+    npm i @infinitycube/gravatar@2.0.6
 
 ## **Usage**
 
-### 1. Import to module
+### Standalone components
 
-Use the below import statement in the app.module or any other module you need to have gravatar image.
+Import `GravatarDirective` straight into the component:
 
-    import {GravatarModule} from '@infinitycube/gravatar';
+```ts
+import { Component } from '@angular/core';
+import { GravatarDirective } from '@infinitycube/gravatar';
 
-### 2. Declare Gravatar in module
+@Component({
+  selector: 'app-user',
+  imports: [GravatarDirective],
+  template: `<img gravatar [email]="user.email" [size]="64" fallback="identicon" />`,
+})
+export class UserComponent {
+  user = { email: 'someone@example.com' };
+}
+```
 
-In the imports inside @NgModule decoration, add GravatarModule.
+### NgModule apps
 
-    @NgModule({
-        declarations: [
-            AppComponent,
-            ...
-        ],
-        imports: [
-            ...,
-            GravatarModule
-        ],
-        providers: [
-            ...
-        ],
-        bootstrap: [AppComponent]
-    })
+Add `GravatarModule` to the module's `imports`, as before:
 
-### 3. Use the gravatar
+```ts
+import { GravatarModule } from '@infinitycube/gravatar';
 
-You can use the gravatar as shown below in any components which are declared in app.module or the module you imported the GravatarModule to.
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, GravatarModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
 
-    <img gravatar [email]="user.email" [size]="16" [fallback]="'mm'">
+### The directive
 
-The property `email` is mandatory. You may mention `size` or it will use the default size `16`. The default fallback image is the garvatar mistery man, `mm` and you can use the following :
+```html
+<img gravatar [email]="user.email" [size]="16" [fallback]="'mm'" />
+```
+
+`email` is required. `size` defaults to `16` and `fallback` to `mm`. A static value can be written without brackets, for example `fallback="retro"`. The `fallback` value can be one of Gravatar's built-in images or the URL of your own image:
 
 - `mm`: (mystery-man) a simple, cartoon-style silhouetted outline of a person (does not vary by email hash)
 - `identicon`: a geometric pattern based on an email hash
 - `monsterid`: a generated 'monster' with different colors, faces, etc
 - `wavatar`: generated faces with differing features and backgrounds
 - `retro`: awesome generated, 8-bit arcade-style pixelated faces
+- `robohash`: a generated robot with different colors, faces, etc
 - `blank`: a transparent PNG image
 
-_Note: You should keep the fallback value within a single quote inside the double quotes, if assigning directly to the element._
+### The service
 
-You can declare a variable as well `fallback:string = "mm"` in your component and use like:
+Use `GravatarService` to build the URL yourself:
 
-    <img gravatar [email]="user.email" [size]="16" [fallback]="fallback">
+```ts
+import { inject } from '@angular/core';
+import { GravatarService } from '@infinitycube/gravatar';
 
-### 4. Use the service
+const gravatarUrl = inject(GravatarService).url(user.email, 128, 'mm');
+// //0.gravatar.com/avatar/<md5 of the email>?s=128&d=mm
+```
 
-You can use the service to just generate the url in your component or service.
-You need to import the `GaravatarService` as below:
+Constructor injection (`constructor(private gravatar: GravatarService) {}`) works too. `size` and `fallback` have the same defaults as the directive.
 
-    import { GravatarService } from '@infinitycube/gravatar';
+## **Upgrading from 2.x**
 
-And assign it like `_gravatar:GravatarService` and you can use to generate url with:
+The API is unchanged: `GravatarModule`, `GravatarDirective` and `GravatarService.url()` work as before. What changed:
 
-    let gravatarUrl = _gravatar.url(this.user.email, 128, 'mm');
-
-The `email` parameter is required. `size` and `fallback` will have the same defaults when using the service as they do when using the directive (`16` and `mm` respectively).
+- Needs Angular 16 or later (see the table above).
+- `GravatarDirective` is standalone, so standalone components can import it directly. `GravatarModule` still exports it for NgModule apps.
+- URLs use `//0.gravatar.com/avatar/...` instead of `//www.gravatar.com/avatar/...`.
+- The email is trimmed before hashing, as Gravatar requires, so `' Me@Example.com '` and `'me@example.com'` give the same image.
+- `fallback` is URL-encoded, so a custom image URL works.
+- A `null` or `undefined` email no longer throws.
+- The directive sets `src` through `Renderer2`, so it works with server-side rendering.
 
 ## **License**
 

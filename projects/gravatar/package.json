@@ -1,10 +1,17 @@
 {
   "name": "@infinitycube/gravatar",
-  "version": "2.0.6",
-  "description": "Gravatar directive for Angular 6 or later",
+  "version": "3.0.0",
+  "description": "Gravatar directive and service for Angular 16 or later",
   "peerDependencies": {
-    "@angular/common": ">6.0.0",
-    "@angular/core": ">6.0.0"
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/public-api.ts"
   },
   "repository": {
     "type": "git",
@@ -14,7 +21,8 @@
     "gravatar",
     "angular",
     "ngx",
-    "directive"
+    "directive",
+    "standalone"
   ],
   "author": {
     "name": "Gopakumar",
